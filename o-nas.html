@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>akme | Buď anonymný - o nás</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-4.3.1.css') }}"/>
+<style>
+img {
+  height: 50%;
+  width: 50%;
+}
+p {
+	word-wrap: break-word;
+}
+</style>
+</head>
+
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="/">akme.sk</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active"> <a class="nav-link" href="/">Obrázk1</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/upload">Nahrať prísp3vok</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/o-nas">0 nás<span class="sr-only">(current)</span></a> </li>
+        </ul>
+  </div>
+</nav>
+
+<div class='container-fluid' align="center">
+<p>Tento portál slúži ako anonymný imageboard kde sa všetci môžu slobodne prejaviť a zdieľať to, čo chcú. Bez cenzúry.<br>Prevádzkari tohto portálu si však vyhradzujú právo zmazať, prípadne upraviť, to, čo uznajú za vhodné za podmienok, že bz príspevok alebo komentár hrubo a výrazne morálne alebo inak poškodzovali jednotlivcov, skupiny ľudí alebo subjekty rôzneho charakteru.</p>
+	
+<p>Tento portál je vytvorený zo ♥ od <a href="https://ariseo.sk">ariseo.sk | IT služby pre všetkých</a></p>
+<p>V prípade, že potrebujete nahlásiť konkrétny príspevok alebo komentár, napíšte nám na <a href="mailto:info@ariseo.sk">info@ariseo.sk</a>. Do mailu zahrňte číslo príspevku a taktiež aj číslo komentára (v prípade, že sa jedná o nahlásenie komentára) a odôvodnenie prečo ste daný príspevok alebo komentár nahlásili.</p>
+</div>
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</body>
+</html>

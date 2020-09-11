@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>akme | Buď anonymný - zobrazenie príspevku</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-4.3.1.css') }}"/>
+<style>
+img {
+  height: 50%;
+  width: 50%;
+}
+p {
+	word-wrap: break-word;
+}
+</style>
+</head>
+
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="/">akme.sk</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active"> <a class="nav-link" href="/">Obrázk1</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/upload">Nahrať prísp3vok</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/o-nas">0 nás</a> </li>
+        </ul>
+  </div>
+</nav>
+
+<div class='container-fluid' align="center">
+{% for information in postDetails %}
+<h5><span class="badge badge-info">#{{ information[0] }} / Pridané dňa {{ information[2] }} o {{ information[1] }}<br>používateľom {{ information[3] }}</span></h5>
+<h5>{{ information[4] }}</h5>
+<p class="word-wrap">{{ information[5] }}</p>
+<img src="{{ url_for('static', filename='images/'+information[6]) }}" alt="https://akme.sk" height="20%" class="img-fluid">
+{% endfor %}
+</div>
+
+
+<div class='container-fluid' align="center">
+	<p>&nbsp;</p>
+	<a href="/post_comment/{{ idOfPostForButtonURL }}"><button type="button" class="btn btn-primary">Napísať komentár</button></a>
+	<p>&nbsp;</p>
+	<h1>Komenty:</h1>
+	<p>&nbsp;</p>
+</div>
+
+<div class='container-fluid' align="center">
+	{% if comments|length < 1 %}
+    	<p>Zatiaľ tu nie je žiadny komentár pre tento príspevok...</p>
+		<p>&nbsp;</p>
+	{% else %}
+		{% for comment in comments %}
+			<div class="card" align="center">
+  				<div class="card-header">
+   					Komentár číslo #{{ comment[2] }} príspevku #{{ comment[1] }}<br><b>Napísal používateľ {{ comment[3] }}</b>
+  				</div>
+  				<div class="card-body">
+    				<p class="card-text">{{ comment[4] }}</p>
+  				</div>
+			</div>
+			<p>&nbsp;</p>
+		{% endfor %}
+	{% endif %}
+</div>
+<!--
+{% for row in allPosts %}
+<div class='container-fluid' align="center">
+	<h5><span class="badge badge-info">#{{ row[0] }} / Pridané dňa {{ row[2] }} o {{ row[1] }}<br>používateľom {{ row[3] }}</span></h5>
+	<h5>{{ row[4] }}</h5>
+	<p class="word-wrap">{{ row[5] }}</p>
+	<a href="/post/{{ row[0] }}"><img src="{{ url_for('static', filename='images/'+row[6]) }}" alt="https://akme.sk" height="20%" class="img-fluid"></a>
+    <p>&nbsp;</p>
+</div>
+{% endfor %}
+
+<script>
+	window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+		//Define what to do when user is almost on the bottom of my webpage - call Python Flask /load function
+            $.ajax({
+            url: '/load',
+            data: $('form').serializeArray(),
+            type: 'POST',
+            success: function(response) {
+				//Add the elements from the loadNewPosts.html into the body of the current webpage
+				document.body.innerHTML += response
+				
+				setTimeout(function(){}, 3000);
+            }
+        });
+	};
+	};
+</script>
+-->
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</body>
+</html>

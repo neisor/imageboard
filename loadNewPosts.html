@@ -1,0 +1,10 @@
+{% for row in loadedPosts %}
+<div class='container-fluid' align="center">
+	<h5><span class="badge badge-info">#{{ row[0] }} / Pridané dňa {{ row[2] }} o {{ row[1] }}<br>používateľom {{ row[3] }}</span></h5>
+	<h5>{{ row[4] }}</h5>
+	<p class="word-wrap">{{ row[5] }}</p>
+	<a href="/post/{{ row[0] }}"><img src="{{ url_for('static', filename='images/'+row[6]) }}" alt="http://akme.sk" height="20%" class="img-fluid"></a>
+	<p class="word-wrap">Stlač obrázok pre zobrazenie komentárov a scrolluj dole.</p>
+    <p>&nbsp;</p>
+</div>
+{% endfor %}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>akme | Buď anonymný - pridať komentár</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-4.3.1.css') }}"/>
+</head>
+
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="/">akme.sk</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active"> <a class="nav-link" href="/">Obrázk1</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/upload">Nahrať prísp3vok</a> </li>
+		  <li class="nav-item"> <a class="nav-link" href="/o-nas">0 nás</a> </li>
+        </ul>
+  </div>
+</nav>
+	
+<div class="container-fluid">
+  <form method="POST" action="" enctype=multipart/form-data>
+    <div class="form-group">
+      <label for="username">Používateľské meno:</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Používateľské meno (anonym ak bude prázdne)" value="{{ username }}">
+      </div>
+    <div class="form-group">
+      <label for="text">Komentár:</label>
+      <input type="text" class="form-control" name="commentText" id="commentText" placeholder="Komentár" value="{{ commentText }}" maxlength="400" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Odoslať</button>
+  </form>
+</div>
+	
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-4.3.1.js') }}"></script>
+</body>
+</html>
